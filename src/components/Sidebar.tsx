@@ -13,7 +13,7 @@ import { FaSearch } from "react-icons/fa";
 
 const Sidebar = () => {
 
-  const [navbar, setNavbar] = useState(false)
+  const [navbar, setNavbar] = useState(true)
 
   const NavList = [
     {
