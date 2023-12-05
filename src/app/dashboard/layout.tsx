@@ -9,8 +9,8 @@ export default function Layout({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex gap-3 w-[100vw]">
-      <div className="w-96">
+    <div className="flex  w-[100vw]">
+      <div className="">
         <Sidebar/>
       </div>
       <div className="w-full">
