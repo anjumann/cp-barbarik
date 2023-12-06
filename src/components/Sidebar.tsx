@@ -55,7 +55,7 @@ const Sidebar = () => {
   return (
     <>
 
-      <div className=" h-screen border-r-2 border-gray-600 px-4 py-2 flex flex-col justify-between ">
+      <div className= {`h-screen ${navbar?"w-72 ":""} border-r-2 border-gray-600 px-4 py-2 flex flex-col justify-between `}>
         <div className="">
           <div className="flex items-center justify-between ">
             <div className={`flex justify-center items-center py-1 ${!navbar ? "hidden" : ""} `} >
