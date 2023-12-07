@@ -1,7 +1,9 @@
-import { createClient } from "@/db/clientForm"
+import { createClient, getClient } from "@/db/clientForm"
+import { Company } from "@/types"
 
 export async function GET() {
-    return Response.json({ data: "data" })
+    const data = await getClient() as Company[]
+    return Response.json({ data })
 }
 
 export async function POST(request: Request) {

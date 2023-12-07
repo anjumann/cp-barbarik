@@ -1,9 +1,9 @@
 import CardDashboard from '@/components/CardDashboard'
-import { getClient } from '@/db/clientForm';
 import Link from 'next/link';
 import React from 'react'
 import { FaPlus } from "react-icons/fa6";
 import { Company } from '@/types';
+import { getClient } from '@/db/clientForm';
 {/* <CardDashboard/> */ }
 
 
@@ -12,9 +12,8 @@ import { Company } from '@/types';
 const page = async () => {
 
   const clientList = await getClient() as Company[]
-  console.log(clientList)
-
-
+  console.log(clientList);
+  
   return (
     <div className='w-full py-6 px-10' >
       <div className="w-full  ">
@@ -61,3 +60,4 @@ const page = async () => {
 }
 
 export default page
+export const dynamic = 'force-dynamic'
