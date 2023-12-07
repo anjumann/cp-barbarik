@@ -26,6 +26,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
 import { Textarea } from "@/components/ui/textarea"
+import { useState } from "react"
+import { useRouter } from 'next/navigation'
 
 const FormSchema = z.object({
 
@@ -54,23 +56,45 @@ const FormSchema = z.object({
 
 const ClientForm = () => {
 
+    const [loading, setLoading] = useState(false)
+    const router = useRouter()
+    const clientReq = async (data: z.infer<typeof FormSchema>) => {
+       
+        let bodyContent = JSON.stringify({
+            "companyName": data.companyName,
+            "category": data.category,
+            "companySize": data.companySize,
+            "companyEmail": data.companyEmail,
+            "description": data.description
+        });
+
+        await fetch("/api", {
+            method: "POST",
+            body: bodyContent,
+            headers: {
+                "Accept": "*/*",
+                "Content-Type": "application/json"
+            }
+        });
+
+    }   
+
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
-        defaultValues: {
-            companyName: "",
-        },
-
     })
 
-    function onSubmit(data: z.infer<typeof FormSchema>) {
-        toast({
-            title: "You submitted the following values:",
-            description: (
-                <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-                    <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-                </pre>
-            ),
-        })
+    async function onSubmit(data: z.infer<typeof FormSchema>) {
+
+        setLoading(true)
+        try {
+            await clientReq(data)
+            router.push('/dashboard')
+        } catch (error) {
+            console.error(error)
+        }
+        setLoading(false)
+
+
     }
 
     return (
@@ -126,9 +150,19 @@ const ClientForm = () => {
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>Company Size</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="shadcn" {...field} />
-                                    </FormControl>
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <FormControl>
+                                            <SelectTrigger>
+                                                <SelectValue placeholder="Select a company size" />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            <SelectItem value="0-10">0-10</SelectItem>
+                                            <SelectItem value="11-100">11-100</SelectItem>
+                                            <SelectItem value="101-500">101-500</SelectItem>
+                                            <SelectItem value="501-1000">501-1000</SelectItem>
+                                        </SelectContent>
+                                    </Select>
 
                                     <FormMessage />
                                 </FormItem>
@@ -142,7 +176,7 @@ const ClientForm = () => {
                                 <FormItem>
                                     <FormLabel>Company Email</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="shadcn" {...field} />
+                                        <Input placeholder="example@mail.com" type="email" {...field} />
                                     </FormControl>
 
                                     <FormMessage />
@@ -172,7 +206,7 @@ const ClientForm = () => {
                     </div>
 
                     <div className="space-x-4">
-                        <Button variant="default" type="submit">Submit</Button>
+                        <Button variant="default" type="submit" disabled={loading} > {loading ? "Submitting..." : "Submit"} </Button>
                         <Button variant='outline' >Cancel</Button>
                     </div>
 

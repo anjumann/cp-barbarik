@@ -8,8 +8,8 @@ import { SiGoogledocs } from "react-icons/si";
 import { ImStack } from "react-icons/im";
 import { MdOutlineContactSupport } from "react-icons/md";
 import { BsGear } from "react-icons/bs";
-import { useState } from 'react';
-import { FaSearch } from "react-icons/fa";
+import { useEffect, useState } from 'react';
+
 
 const Sidebar = () => {
 
@@ -52,6 +52,30 @@ const Sidebar = () => {
     },
   ]
 
+  useEffect(()=>{
+
+    if(typeof window !== 'undefined' && window.localStorage){
+      let navbarStatus = localStorage.getItem('sidebar') 
+      if (navbarStatus !== null && navbarStatus !== undefined) {
+        let navbarBool = (navbarStatus === 'true'); 
+        setNavbar(navbarBool);
+      }
+    }
+
+  },[])
+
+  const setLocalNavbar = () =>{
+    if(typeof window !== 'undefined' && window.localStorage){
+      if (navbar){
+        localStorage.setItem('sidebar',"false");
+        setNavbar(false)
+      } else{
+        localStorage.setItem('sidebar',"true");
+        setNavbar(true)
+      }
+    }
+  }
+
   return (
     <>
 
@@ -64,7 +88,7 @@ const Sidebar = () => {
                 Barbarik
               </span>
             </div>
-            <div className= {` ${navbar?'':'w-fit mx-auto mt-2'}  text-2xl cursor-pointer`} onClick={() => { setNavbar(!navbar) }} >
+            <div className= {` ${navbar?'':'w-fit mx-auto my-4'}  text-2xl cursor-pointer`} onClick={() => { setLocalNavbar() }} >
               <GiHamburgerMenu />
             </div>
           </div>

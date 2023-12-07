@@ -6,7 +6,6 @@ const Navbar = () => {
 
   const pathname = usePathname()
 
-  console.log(pathname)
   return (
     <div className=' py-2 px-10 text-lg font-bold flex items-center justify-between bg-zinc-800 ' >
       {
