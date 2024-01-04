@@ -1,10 +1,10 @@
-import React from 'react'
 import { PersonalDetail } from '@/components/profile/PersonalDetail'
-import { redirect } from 'next/navigation'
+import React from 'react'
 
 const page = () => {
-  redirect("/profile/personal-details")
-
+    return (
+        <div className="w-2/3 mx-auto">   <PersonalDetail /> </div>
+    )
 }
 
 export default page

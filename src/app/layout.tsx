@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster"
 import './globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 const poppins = Poppins({
   subsets: ['latin'],
