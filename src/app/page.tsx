@@ -1,6 +1,10 @@
-import { redirect } from 'next/navigation'
+import ThemeToggle from "@/components/shared/ThemeToggle";
 
 export default function Home() {
-  redirect('/dashboard')
+  return (
+    <>
+      <ThemeToggle/>
+    </>
+  )
 
 }
