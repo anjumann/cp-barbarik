@@ -15,7 +15,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'Barbarik AI',
-  description: 'Barbarik AI',
+  description: 'Co-pilot for your financial decisions',
 }
 
 export default function RootLayout({
