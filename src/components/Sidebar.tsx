@@ -2,44 +2,20 @@
 import logo from '@/assests/logo.png'
 import Image from 'next/image'
 import { GiHamburgerMenu } from "react-icons/gi";
-import { LuHome } from "react-icons/lu";
-import { FiBox } from "react-icons/fi";
-import { SiGoogledocs } from "react-icons/si";
-import { ImStack } from "react-icons/im";
 import { MdOutlineContactSupport } from "react-icons/md";
 import { BsGear } from "react-icons/bs";
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
+import { NavList } from '@/constant';
+import { useActiveTab } from '@/lib/hooks';
+
+
 
 const Sidebar = () => {
 
   const [navbar, setNavbar] = useState(true)
-
-  const NavList = [
-    {
-      name: "Dashboard",
-      logo: <LuHome />,
-      link: "/dashboard"
-    },
-    {
-      name: "CRM",
-      logo: <FiBox />,
-      link: "/crm"
-    },
-    {
-      name: "Integration",
-      logo: <SiGoogledocs />,
-      link: "/integration"
-    },
-    {
-      name: "Copilot",
-      logo: <ImStack />,
-      link: "copilot"
-    },
-
-  ]
-
+  
   const BottomNavList = [
     {
       name: "Support",
@@ -65,7 +41,6 @@ const Sidebar = () => {
 
   },[])
 
-  console.log(navbar)
   const setLocalNavbar = () =>{
     if(typeof window !== 'undefined' && window.localStorage){
       if (navbar){
@@ -81,7 +56,7 @@ const Sidebar = () => {
   return (
     <>
 
-      <div className= {`h-screen ${navbar?"w-72 ":"w-16"} border-r-2 border-gray-600 px-4 py-2 flex flex-col justify-between `}>
+      <div className= {`h-screen ${navbar?"w-80 ":"w-16"} border-r-2 border-gray-600 px-4 py-2 flex flex-col justify-between `}>
         <div className="">
           <div className="flex items-center justify-between ">
             <div className={`flex justify-center items-center py-1 ${!navbar ? "hidden" : ""} `} >
@@ -111,12 +86,12 @@ const Sidebar = () => {
             }
 
           </div>
-          <div className="flex flex-col  mt-4">
+          <div className="flex flex-col gap-1 mt-4">
             {
               NavList.map((val, index) => {
                 return (
                   <Link href={val.link}  key={index}>
-                  <div className="flex justify-start items-center gap-3 px-1.5 py-2 text-base cursor-pointer hover:bg-zinc-800 rounded-md font-semibold text-muted-foreground" > <span className='text-xl text-primary-foreground' > {val.logo} </span> <span className={`${navbar ? '':'hidden' }`} >  {val.name} </span> </div>
+                  <div className={`flex justify-start items-center gap-3 px-1.5 py-2 text-base cursor-pointer hover:bg-zinc-800 rounded-md font-semibold text-muted-foreground ${useActiveTab(val.link)? "bg-zinc-800" :"" } `}> <span className='text-xl text-primary-foreground' > {val.logo} </span> <span className={`${navbar ? '':'hidden' }`} >  {val.name} </span> </div>
                   </Link>
                 )
               })
@@ -128,7 +103,7 @@ const Sidebar = () => {
             {
               BottomNavList.map((val, index) => {
                 return (
-                  <div className="flex justify-start items-center gap-3 px-1.5 py-2 text-lg cursor-pointer hover:bg-zinc-800 rounded-md" key={index} > <span className='text-2xl' > {val.logo} </span>  <span className={`${navbar ? '':'hidden' }`} > {val.name} </span> </div>
+                  <div className="flex justify-start items-center gap-3 px-1.5 py-2 text-base cursor-pointer hover:bg-zinc-800 rounded-md" key={index} > <span className='text-2xl' > {val.logo} </span>  <span className={`${navbar ? '':'hidden' }`} > {val.name} </span> </div>
                 )
               })
             }
