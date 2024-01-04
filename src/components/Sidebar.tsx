@@ -9,6 +9,7 @@ import { ImStack } from "react-icons/im";
 import { MdOutlineContactSupport } from "react-icons/md";
 import { BsGear } from "react-icons/bs";
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 
 const Sidebar = () => {
@@ -19,22 +20,22 @@ const Sidebar = () => {
     {
       name: "Dashboard",
       logo: <LuHome />,
-      link: ""
+      link: "/dashboard"
     },
     {
       name: "CRM",
       logo: <FiBox />,
-      link: ""
+      link: "/crm"
     },
     {
       name: "Integration",
       logo: <SiGoogledocs />,
-      link: ""
+      link: "/integration"
     },
     {
       name: "Copilot",
       logo: <ImStack />,
-      link: ""
+      link: "copilot"
     },
 
   ]
@@ -64,6 +65,7 @@ const Sidebar = () => {
 
   },[])
 
+  console.log(navbar)
   const setLocalNavbar = () =>{
     if(typeof window !== 'undefined' && window.localStorage){
       if (navbar){
@@ -79,16 +81,16 @@ const Sidebar = () => {
   return (
     <>
 
-      <div className= {`h-screen ${navbar?"w-72 ":""} border-r-2 border-gray-600 px-4 py-2 flex flex-col justify-between `}>
+      <div className= {`h-screen ${navbar?"w-72 ":"w-16"} border-r-2 border-gray-600 px-4 py-2 flex flex-col justify-between `}>
         <div className="">
           <div className="flex items-center justify-between ">
             <div className={`flex justify-center items-center py-1 ${!navbar ? "hidden" : ""} `} >
-              <Image src={logo} height={40} width={40} alt='' />
-              <span className='text-2xl font-bold' >
+              <Image src={logo} height={28} width={28} alt='' />
+              <span className='text-lg font-bold' >
                 Barbarik
               </span>
             </div>
-            <div className= {` ${navbar?'':'w-fit mx-auto my-4'}  text-2xl cursor-pointer`} onClick={() => { setLocalNavbar() }} >
+            <div className= {` ${navbar?'':'w-fit mx-auto my-4'}  text-lg cursor-pointer`} onClick={() => { setLocalNavbar() }} >
               <GiHamburgerMenu />
             </div>
           </div>
@@ -109,11 +111,13 @@ const Sidebar = () => {
             }
 
           </div>
-          <div className="flex flex-col  mt-1">
+          <div className="flex flex-col  mt-4">
             {
               NavList.map((val, index) => {
                 return (
-                  <div className="flex justify-start items-center gap-3 px-1.5 py-2 text-lg cursor-pointer hover:bg-zinc-800 rounded-md" key={index} > <span className='text-2xl' > {val.logo} </span> <span className={`${navbar ? '':'hidden' }`} >  {val.name} </span> </div>
+                  <Link href={val.link}  key={index}>
+                  <div className="flex justify-start items-center gap-3 px-1.5 py-2 text-base cursor-pointer hover:bg-zinc-800 rounded-md font-semibold text-muted-foreground" > <span className='text-xl text-primary-foreground' > {val.logo} </span> <span className={`${navbar ? '':'hidden' }`} >  {val.name} </span> </div>
+                  </Link>
                 )
               })
             }
