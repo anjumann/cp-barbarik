@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --background: 0 0% 90%;
@@ -50,17 +49,39 @@
   }
 }
 
-  @layer base {
-    * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-background text-foreground tracking-wider leading-relaxed ;
-    }
+@layer base {
+  * {
+    @apply border-border;
   }
+  body {
+    @apply bg-background text-foreground tracking-wider leading-relaxed;
+  }
+}
 
+.flexCenter {
+  @apply flex items-center justify-center gap-3;
+}
 
+.bg-neumorphism {
+  @apply bg-white shadow-lg rounded-xl;
+}
 
-.flexCenter{
-    @apply flex items-center justify-center gap-3
+.gradient-03 {
+  position: absolute;
+  width: 404px;
+  height: 800px;
+  left: 60%;
+  top: 5%;
+
+  background: rgba(134, 3, 113, 0.35);
+  filter: blur(175px);
+  transform: rotate(-114.2deg);
+}
+
+.bg-gradient-purple-to-pink {
+  @apply bg-gradient-to-r from-purple-600 to-pink-500;
+}
+
+.bg-glassmorph {
+  @apply bg-white rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100;
 }
