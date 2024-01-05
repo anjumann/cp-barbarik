@@ -72,7 +72,7 @@
   height: 800px;
   left: 60%;
   top: 5%;
-
+  overflow: hidden;
   background: rgba(134, 3, 113, 0.35);
   filter: blur(175px);
   transform: rotate(-114.2deg);

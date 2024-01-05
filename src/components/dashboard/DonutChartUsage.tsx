@@ -20,7 +20,7 @@ export const DonutChartUsage = () => {
   const [value, setValue] = useState(null);
   return (
     <>
-      <Card className="mx-auto max-w-xs  ">
+      <Card className="mx-auto max-w-xs bg-glassmorph ">
         <Title>Sales</Title>
         <DonutChart
           className="mt-6"

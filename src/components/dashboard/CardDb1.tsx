@@ -15,7 +15,7 @@ import { BsShopWindow } from "react-icons/bs";
 const CardDb1 = () => {
     return (
         <>
-            <Card className='bg-background' >
+            <Card className=' bg-glassmorph' >
                 <CardHeader className='flex flex-row items-center  justify-between ' >
                     <div className="flex flex-row items-center gap-2 ">
                         <div className="p-2 bg-orange-400 rounded-sm">

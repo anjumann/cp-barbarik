@@ -15,10 +15,11 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Image from "next/image";
+import Link from "next/link";
 
 export default function LoginCard() {
     return (
-        <Card className="bg-glassmorph  " >
+        <Card className="bg-glassmorph" >
             <CardHeader className="space-y-1 text-center">
                 <CardTitle className="text-2xl flex flex-row justify-center items-center "> <Image src="/logo/barbarik-logo.png" alt="barbarik logo" width={35} height={35} /> Barbarik AI
                 </CardTitle>
@@ -30,11 +31,11 @@ export default function LoginCard() {
             </CardHeader>
             <CardContent className="grid gap-4">
                 <div className="grid grid-cols-2 gap-6">
-                    <Button variant="outline">
+                    <Button variant="outline" className="bg-glassmorph" >
                         <FiGithub className="mr-2 h-4 w-4" />
                         Github
                     </Button>
-                    <Button variant="outline">
+                    <Button variant="outline" className="bg-glassmorph" >
                         <FaGoogle className="mr-2 h-4 w-4" />
                         Google
                     </Button>
@@ -59,7 +60,7 @@ export default function LoginCard() {
                 </div>
             </CardContent>
             <CardFooter>
-                <Button className="w-full bg-gradient-purple-to-pink  ">Create account</Button>
+                <Button className="w-full bg-gradient-purple-to-pink"> <Link href="/dashboard" > Create account</Link></Button>
             </CardFooter>
             <CardFooter>
                 Don't you have an account yet? {"  "} <a href="#" className="text-pink-600 hover:underline font-bold ml-1">Sign up</a>
