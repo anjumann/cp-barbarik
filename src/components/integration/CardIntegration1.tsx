@@ -10,41 +10,31 @@ import {
 import { BsShopWindow } from 'react-icons/bs'
 import Image from 'next/image'
 import { Badge } from "@/components/ui/badge"
+import { Button } from '../ui/button'
 
-const CardIntegration1 = () => {
+const CardIntegration1 = ({ data }: {
+    data: {
+        name: string;
+        desc: string;
+    }
+}) => {
     return (
-        <Card className='bg-zinc-800 border-2 border-zinc-600' >
-            <CardHeader className='flex flex-row items-center  justify-between ' >
-                <div className="flex flex-row items-center gap-2 ">
-                    <div className="p-2 ">
-                        <Image className="" src="/logo/zoho.png" alt="zoho logo" height={50} width={50} />
+        <Card className='db-card-glassmorh' >
+            <CardHeader className='flex flex-row items-center pb-2 justify-between ' >
+                <div className="flex flex-row items-center">
+                    <div className="pr-2 flex gap-x-2 flex-row justify-center items-center ">
+                        <Image className="" src="/logo/zoho.png" alt="zoho logo" height={40} width={40} />
+                        <div className="text-sm font-sans font-semibold"> {data.name} </div>
                     </div>
-                    {/* <CardTitle>Card Title</CardTitle> */}
                 </div>
-                <CardDescription className='text-accent-foreground' ><Badge variant="outline">New</Badge>
-                </CardDescription>
             </CardHeader>
-            <CardContent className='flex flex-row justify-between font-semibold ' >
-                <div className="flex flex-col">
-                    <div className="">
-                        Current
-                    </div>
-                    <div className="">
-                        ₹ 4000 /-
-                    </div>
-                </div>
-                <div className="flex flex-col">
-                    <div className="">
-                        Overdue
-                    </div>
-                    <div className="">
-                        0
-                    </div>
-                </div>
+            <CardContent className='flex flex-row justify-between text-sm font-light pb-4 ' >
+                {data.desc}
             </CardContent>
-            {/* <CardFooter>
-        <p>Card Footer</p>
-    </CardFooter> */}
+            <CardFooter className='flex flex-row justify-between items-center ' >
+                <Button variant="outline" > Integrate </Button>
+            </CardFooter>
+
         </Card>
     )
 }
