@@ -8,43 +8,52 @@ const page = () => {
 
   const banks_info = [
     {
-      "name": "HDFC Bank",
-      "desc": "Integrate HDFC accounts for real-time transaction synchronization, ensuring accurate and holistic financial analysis."
+      name: "HDFC Bank",
+      desc: "Integrate HDFC accounts for real-time transaction synchronization, ensuring accurate and holistic financial analysis.",
+      imageUrl:"/images/integration/hdfc.png"
     },
     {
-      "name": "ICICI Bank",
-      "desc": "Enable seamless integration with ICICI accounts for comprehensive financial data analysis and synchronization."
+      name: "ICICI Bank",
+      desc: "Streamline financial planning with ICICI integration, extracting and organizing transactional data efficiently.",
+      imageUrl:"/images/integration/icici.png"
     },
     {
-      "name": "Axis Bank",
-      "desc": "Integrate Axis accounts to streamline transaction synchronization for detailed and accurate financial insights."
+      name: "Axis Bank",
+      desc: "Seamlessly integrate AXIS accounts for a comprehensive and accurate financial overview within your software.",
+      imageUrl:"/images/integration/axis.png"
     }
   ]
 
   const accounting_software_info = [
     {
-      "name": "QuickBooks Online",
-      "desc": "Seamlessly manage finances, track expenses, and generate reports with QuickBooks Online's intuitive accounting platform."
+      name: "Tally",
+      desc: "Extract Tally data effortlessly for streamlined financial management and comprehensive reporting in your software.",
+      imageUrl:"/images/integration/tally.png"
     },
     {
-      "name": "Xero",
-      "desc": "Effortlessly handle invoicing, bank reconciliation, and financial reporting using Xero's cloud-based accounting software."
+      name: "QuickBooks Online",
+      desc: "Leverage QuickBooks integration for automatic access to essential financial data and robust reporting.",
+      imageUrl:"/images/integration/quick-books.png"
     },
     {
-      "name": "FreshBooks",
-      "desc": "Simplify billing, expense tracking, and timekeeping with FreshBooks' user-friendly accounting and invoicing solutions."
+      name: "Zoho",
+      desc: "Seamlessly integrate Zoho to consolidate collaborative financial insights, enhancing your planning processes.",
+      imageUrl:"/images/integration/zoho.png"
     }
+    
   ]
 
 
   const channels_info = [
     {
       name: "Whatsapp",
-      desc: "Schedule and send automated reports via WhatsApp, ensuring efficient and timely financial communication."
+      desc: "Schedule and send automated reports via WhatsApp, ensuring efficient and timely financial communication.",
+      imageUrl:"/images/integration/whatsapp.png"
     },
     {
       name: "Email",
-      desc: "Automate report delivery through email for timely communication and enhanced financial insights."
+      desc: "Automate report delivery through email for timely communication and enhanced financial insights.",
+      imageUrl: "/images/integration/email.png"
     },
   ]
 
@@ -61,11 +70,11 @@ const page = () => {
           </Button> */}
         </div>
       </div>
-      <div 
+      <div
         style={{
 
         }}
-       className=" overflow-y-scroll h-[80vh] hide-scrollbar scrollbar pr-4 ">
+        className=" overflow-y-scroll h-[80vh] hide-scrollbar scrollbar pr-4 ">
         <div className="flex flex-col my-3">
           <div className="text-lg font-semibold mb-3 pl-2">
             Bank Accounts (03)

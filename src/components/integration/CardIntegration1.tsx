@@ -16,14 +16,15 @@ const CardIntegration1 = ({ data }: {
     data: {
         name: string;
         desc: string;
+        imageUrl: string;
     }
 }) => {
     return (
-        <Card className='db-card-glassmorh' >
+        <Card className='db-card-glassmorh grid grid-rows-3 ' >
             <CardHeader className='flex flex-row items-center pb-2 justify-between ' >
                 <div className="flex flex-row items-center">
                     <div className="pr-2 flex gap-x-2 flex-row justify-center items-center ">
-                        <Image className="" src="/logo/zoho.png" alt="zoho logo" height={40} width={40} />
+                        <Image className="bg-white rounded-full" src={data.imageUrl} alt="zoho logo" height={40} width={40} />
                         <div className="text-sm font-sans font-semibold"> {data.name} </div>
                     </div>
                 </div>

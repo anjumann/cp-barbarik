@@ -65,14 +65,14 @@ const CardDb = () => {
                                         ))
                                     }
 
-                                  
+
                                 </SelectGroup>
                             </SelectContent>
                         </Select>
                     </CardDescription>
                 </CardHeader>
                 <CardContent className=' flexCenter  font-semibold ' >
-                <DataTable/>
+                    <DataTable />
                 </CardContent>
                 {/* <CardFooter>
                     <p>Card Footer</p>
