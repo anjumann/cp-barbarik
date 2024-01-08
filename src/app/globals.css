@@ -70,7 +70,7 @@
   position: absolute;
   width: 404px;
   height: 800px;
-  left: 60%;
+  left: 50%;
   top: 5%;
   overflow: hidden;
   background: rgba(134, 3, 113, 0.35);
@@ -84,4 +84,18 @@
 
 .bg-glassmorph {
   @apply bg-white rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100;
+}
+
+
+.db-card-glassmorh {
+  @apply bg-[#ffffff0a] rounded-2xl border-[0.5px] border-solid border-gray-500/60 
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Optional: Hide scrollbar in Firefox */
+.hide-scrollbar {
+  scrollbar-width: none;
 }

@@ -37,7 +37,7 @@ const page = () => {
                     {
                         sample.map((item, index) => {
                             return (
-                                <div key={index} className="flex items-center justify-center ">
+                                <div key={index} className="flex items-center justify-center cursor-pointer ">
                                     {item.logo}
                                     <div className="ml-2 text-gray-400 text-lg font-semibold">
                                         {item.label}
@@ -50,7 +50,7 @@ const page = () => {
             </div>
             <div className=" grid grid-cols-5 px-12 mt-10">
                 <div className="col-span-3 flex items-center justify-center ">
-                    <Image src="/images/copilot-loginscreen.png" width={700} height={700} quality={100} alt="login screen" />
+                    <Image src="/images/copilot-loginscreen.png" width={700} height={700} quality={100} alt="copilot logo" />
                 </div>
                 <div className=" col-span-2 w-5/6 flexCenter ">
                     <LoginCard />
